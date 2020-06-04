@@ -1,4 +1,4 @@
-import { PUSH_ITEM } from '../actions/actionTypes';
+import { PUSH_ITEM, INC, DEC } from '../actions/actionTypes';
 
 const cart = (state = [], action) => {
   switch (action.type) {
@@ -9,6 +9,30 @@ const cart = (state = [], action) => {
           title: action.title,
           quantity: action.quantity,
         },
+      ];
+    case INC:
+      return [
+        ...state.map((item) => {
+          if (item.title === action.title) {
+            return {
+              title: action.title,
+              quantity: action.quantity + 1,
+            };
+          }
+          return item;
+        }),
+      ];
+    case DEC:
+      return [
+        ...state.map((item) => {
+          if (item.title === action.title) {
+            return {
+              title: action.title,
+              quantity: action.quantity - 1,
+            };
+          }
+          return item;
+        }),
       ];
     default:
       return state;

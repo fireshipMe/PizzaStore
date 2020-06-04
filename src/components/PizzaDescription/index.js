@@ -29,7 +29,7 @@ class PizzaDescription extends React.Component {
     this.props.pushItem(this.props.title, this.state.quantity);
   };
 
-  render() {
+  render = () => {
     return (
       <div className={styles.container}>
         <figure className={styles.imageContainer}>
@@ -54,7 +54,7 @@ class PizzaDescription extends React.Component {
         <Button text="Добавить в заказ" onClick={this.addToCart} />
       </div>
     );
-  }
+  };
 }
 
 export default connect(null, { pushItem })(PizzaDescription);
