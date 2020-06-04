@@ -1,0 +1,16 @@
+.header {
+  display: inline-block;
+  width: 100vw;
+  height: 40px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 7.5vw;
+  margin-top: 10px;
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

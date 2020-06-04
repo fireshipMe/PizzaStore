@@ -1,0 +1,97 @@
+.container {
+  position: relative;
+  width: 880px;
+  height: 660px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  position: absolute;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.form {
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+}
+
+.middleRow {
+  margin-top: 10px;
+}
+
+.bottomRow {
+  margin-top: 10px;
+}
+
+.input {
+  box-sizing: border-box;
+  height: 40px;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+  &:focus {
+    border: 1px solid rgba(255, 100, 0, 0.5);
+  }
+}
+
+.streetInput {
+  width: 430px;
+  margin-right: 17px;
+}
+
+.houseInput {
+  width: 150px;
+}
+
+.apartmentInput {
+  width: 150px;
+  margin-right: 74px;
+}
+
+.entranceInput {
+  width: 150px;
+  margin-right: 73px;
+}
+
+.floorInput {
+  width: 150px;
+}
+
+.commentsInput {
+  width: 598px;
+  height: 80px;
+  resize: none;
+  font-size: 14px;
+  padding-top: 10px;
+  &::placeholder {
+    font-size: 16px;
+  }
+}
+
+.submitButton {
+  margin-top: 50px;
+  width: 150px;
+  height: 60px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

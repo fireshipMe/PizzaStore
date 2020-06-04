@@ -1,0 +1,60 @@
+.image {
+  position: absolute;
+  width: 292px;
+  height: inherit;
+  &Container {
+    border-radius: 8px;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+  }
+}
+
+.title {
+  display: inline-block;
+  background-color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.description {
+  display: inline-block;
+  background-color: white;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 10px;
+  margin-left: 220px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.wrapper {
+  &Title {
+    height: 50px;
+  }
+  &Description {
+    height: 60px;
+  }
+}
+.container {
+  width: 292px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: white;
+  &:hover {
+    box-shadow: 0 0 10px rgba(165, 152, 149, 0.7);
+  }
+}

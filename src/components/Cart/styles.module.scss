@@ -1,0 +1,21 @@
+.container {
+  height: 660px;
+  width: 330px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  margin-left: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.item {
+  display: inline-block;
+}

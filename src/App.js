@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route, Link } from 'react-router-dom';
 
-function App() {
+import { PizzasList } from './components/PizzasList/index';
+import { Banner } from './components/Banner/index';
+import { Order } from './components/Order/index';
+import { Cart } from './components/Cart/index';
+import styles from './app.module.scss';
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={(props) => (
+            <div>
+              <Link to="/order">Корзина</Link>
+              <Banner />
+              <PizzasList />
+            </div>
+          )}
+        />
+        <Route
+          path="/order"
+          exact
+          render={(props) => (
+            <div className={styles.container}>
+              <Link to="/">Меню</Link>
+              <Order />
+              <Cart />
+            </div>
+          )}
+        />
+      </Switch>
+    </React.Fragment>
   );
-}
-
-export default App;
+};
