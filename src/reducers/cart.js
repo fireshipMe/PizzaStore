@@ -1,4 +1,4 @@
-import { PUSH_ITEM, INC, DEC } from '../actions/actionTypes';
+import { PUSH_ITEM, INC, DEC, REM_ITEM } from '../actions/actionTypes';
 
 const cart = (state = [], action) => {
   switch (action.type) {
@@ -10,6 +10,8 @@ const cart = (state = [], action) => {
           quantity: action.quantity,
         },
       ];
+    case REM_ITEM:
+      return [...state.filter((item) => item.title !== action.title)];
     case INC:
       return [
         ...state.map((item) => {

@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { find } from 'lodash';
 import { Button } from '../Button/index';
 import styles from './styles.module.scss';
-import { pushItem } from '../../actions/cart';
+import { pushItem, remItem } from '../../actions/cart';
 import { QuantityPicker } from '../QuantityPicker/index';
 // cant use hooks here because of loop
 class PizzaDescription extends React.Component {
@@ -10,7 +11,19 @@ class PizzaDescription extends React.Component {
     super(props);
     this.state = {
       quantity: 1,
+      isAdded: false,
     };
+  }
+
+  componentDidMount() {
+    if (
+      find(this.props.items, {
+        title: this.props.title,
+      })
+    ) {
+      console.log(1);
+      this.setState({ isAdded: true });
+    }
   }
 
   dec = () => {
@@ -26,7 +39,18 @@ class PizzaDescription extends React.Component {
   };
 
   addToCart = () => {
-    this.props.pushItem(this.props.title, this.state.quantity);
+    console.log(this.props.items);
+    if (!this.state.isAdded) {
+      this.props.pushItem(this.props.title, this.state.quantity);
+      this.setState({ isAdded: true });
+    }
+  };
+
+  remFromCart = () => {
+    if (this.state.isAdded) {
+      this.props.remItem(this.props.title);
+      this.setState({ isAdded: false });
+    }
   };
 
   render = () => {
@@ -51,10 +75,20 @@ class PizzaDescription extends React.Component {
           onDecClick={() => this.dec()}
           onIncClick={() => this.inc()}
         />
-        <Button text="Добавить в заказ" onClick={this.addToCart} />
+        {this.state.isAdded ? (
+          <Button text="Убрать" onClick={this.remFromCart} />
+        ) : (
+          <Button text="Добавить в заказ" onClick={this.addToCart} />
+        )}
       </div>
     );
   };
 }
 
-export default connect(null, { pushItem })(PizzaDescription);
+const mapStateToProps = (state) => {
+  return { items: state.cart };
+};
+
+export default connect(mapStateToProps, { pushItem, remItem })(
+  PizzaDescription
+);
