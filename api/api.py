@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from database_interaction import getAllPizzas
-
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 CORS(app)
