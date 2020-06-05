@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import styles from './styles.module.scss';
+
 export const Order = () => {
   return (
     <div className={styles.container}>
@@ -92,6 +94,12 @@ const OrderForm = () => {
         <button className={styles.submitButton} type="submit">
           Подтвердить
         </button>
+        <Link to="/">
+          {' '}
+          <button className={styles.submitButton} type="submit">
+            В меню
+          </button>
+        </Link>
       </div>
     </form>
   );
