@@ -16,12 +16,12 @@ class PizzaDescription extends React.Component {
   }
 
   componentDidMount() {
-    if (
-      find(this.props.items, {
-        title: this.props.title,
-      })
-    ) {
-      this.setState({ isAdded: true });
+    // check if this pizza is in the cart
+    const t = find(this.props.items, {
+      title: this.props.title,
+    });
+    if (t) {
+      this.setState({ isAdded: true, quantity: t.quantity });
     }
   }
 
