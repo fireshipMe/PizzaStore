@@ -21,7 +21,6 @@ class PizzaDescription extends React.Component {
         title: this.props.title,
       })
     ) {
-      console.log(1);
       this.setState({ isAdded: true });
     }
   }
