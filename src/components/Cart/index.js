@@ -25,7 +25,9 @@ export const Cart = () => {
         <div className={styles.total}>
           Итог: {price}$ / {(price * 0.88).toPrecision(4)} €
         </div>
-      ) : null}
+      ) : (
+        <div className={styles.emptyCart}>Кажется, ничего нет :(</div>
+      )}
     </div>
   );
 };
