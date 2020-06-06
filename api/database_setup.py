@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
+from config import DB_CREDENTIALS
 Base = declarative_base()
 
 
@@ -25,7 +25,7 @@ class Pizza(Base):
 
 
 engine = create_engine(
-    'mysql+pymysql://WdUGFjsgX8:OKlW3hYgxa@remotemysql.com:3306/WdUGFjsgX8?charset=utf8mb4')
+    DB_CREDENTIALS)
 
 Base.metadata.create_all(engine)
 

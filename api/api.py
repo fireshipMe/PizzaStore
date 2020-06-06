@@ -4,6 +4,8 @@ from flask_cors import CORS
 from database_interaction import getAllPizzas
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 CORS(app)
 api = Api(app)
 

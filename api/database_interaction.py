@@ -14,6 +14,6 @@ session = DBSession()
 
 
 def getAllPizzas():
-
+    session.rollback()
     pizzas = session.query(Pizza).all()
     return json.dumps([x.serialize for x in pizzas], ensure_ascii=False)
