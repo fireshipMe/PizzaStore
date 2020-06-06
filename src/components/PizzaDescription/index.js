@@ -17,11 +17,11 @@ class PizzaDescription extends React.Component {
 
   componentDidMount() {
     // check if this pizza is in the cart
-    const t = find(this.props.items, {
+    const item = find(this.props.items, {
       title: this.props.title,
     });
-    if (t) {
-      this.setState({ isAdded: true, quantity: t.quantity });
+    if (item) {
+      this.setState({ isAdded: true, quantity: item.quantity });
     }
   }
 
@@ -40,7 +40,11 @@ class PizzaDescription extends React.Component {
   addToCart = () => {
     console.log(this.props.items);
     if (!this.state.isAdded) {
-      this.props.pushItem(this.props.title, this.state.quantity);
+      this.props.pushItem(
+        this.props.title,
+        this.state.quantity,
+        this.props.price
+      );
       this.setState({ isAdded: true });
     }
   };
@@ -68,21 +72,41 @@ class PizzaDescription extends React.Component {
         <div className={styles.wrapperDescription}>
           <p className={styles.description}>{this.props.description}</p>
         </div>
-        <p className={styles.price}>{this.props.price + ' P'}</p>
-        <QuantityPicker
-          value={this.state.quantity}
-          onDecClick={() => this.dec()}
-          onIncClick={() => this.inc()}
-        />
+        <div className={styles.priceContainer}>
+          <Price price={this.props.price} quantity={this.state.quantity} />
+        </div>
+        <div className={styles.quantityPicker}>
+          <QuantityPicker
+            value={this.state.quantity}
+            onDecClick={() => this.dec()}
+            onIncClick={() => this.inc()}
+          />
+        </div>
         {this.state.isAdded ? (
-          <Button text="Убрать" onClick={this.remFromCart} />
+          <Button text="УБРАТЬ" onClick={this.remFromCart} isAdded="true" />
         ) : (
-          <Button text="Добавить в заказ" onClick={this.addToCart} />
+          <Button text="В КОРЗИНУ" onClick={this.addToCart} />
         )}
       </div>
     );
   };
 }
+
+const Price = ({ price, quantity }) => {
+  const toEuro = () => {
+    // Might consider using some exchanges API, but for now will use exchange rates as for today
+    return price * 0.88;
+  };
+
+  return (
+    <div>
+      <p className={styles.price}>{(price * quantity).toPrecision(2) + ' $'}</p>
+      <p className={styles.price}>
+        {(toEuro() * quantity).toPrecision(2) + ' €'}
+      </p>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return { items: state.cart };

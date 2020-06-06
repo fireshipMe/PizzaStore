@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import styles from './styles.module.scss';
+
 export const Order = () => {
   return (
     <div className={styles.container}>
@@ -28,6 +30,37 @@ const OrderForm = () => {
   });
   return (
     <form className={styles.form} onSubmit={formik.handleSubmit}>
+      <div className={styles.contactsTitle}>Контактная информация</div>
+      <div className={styles.contacts}>
+        <input
+          placeholder="Имя"
+          id="name"
+          name="name"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+          className={styles.input}
+        />
+        <input
+          placeholder="Телефон"
+          id="phone"
+          name="phone"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.phone}
+          className={[styles.input, styles.phoneInput].join(' ')}
+        />
+        <input
+          placeholder="E-Mail"
+          id="email"
+          name="email"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          className={[styles.input, styles.emailInput].join(' ')}
+        />
+      </div>
+      <div className={styles.address}>Адрес</div>
       <div className={styles.topRow}>
         <input
           placeholder="Улица"
@@ -90,8 +123,13 @@ const OrderForm = () => {
       </div>
       <div>
         <button className={styles.submitButton} type="submit">
-          Подтвердить
+          ЗАКАЗАТЬ
         </button>
+        <Link to="/">
+          <button className={styles.submitButton + ' ' + styles.menuButton}>
+            МЕНЮ
+          </button>
+        </Link>
       </div>
     </form>
   );

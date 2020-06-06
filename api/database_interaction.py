@@ -2,9 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Pizza, Base
 import json
+from config import DB_CREDENTIALS
 
 engine = create_engine(
-    'mysql+pymysql://WdUGFjsgX8:OKlW3hYgxa@remotemysql.com:3306/WdUGFjsgX8?charset=utf8mb4')
+    DB_CREDENTIALS)
 
 Base.metadata.create_all(engine)
 
@@ -13,6 +14,6 @@ session = DBSession()
 
 
 def getAllPizzas():
-
+    session.rollback()
     pizzas = session.query(Pizza).all()
     return json.dumps([x.serialize for x in pizzas], ensure_ascii=False)

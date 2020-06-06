@@ -8,6 +8,7 @@ const cart = (state = [], action) => {
         {
           title: action.title,
           quantity: action.quantity,
+          price: action.price,
         },
       ];
     case REM_ITEM:
@@ -19,6 +20,7 @@ const cart = (state = [], action) => {
             return {
               title: action.title,
               quantity: action.quantity + 1,
+              price: item.price,
             };
           }
           return item;
@@ -31,6 +33,7 @@ const cart = (state = [], action) => {
             return {
               title: action.title,
               quantity: action.quantity - 1,
+              price: item.price,
             };
           }
           return item;

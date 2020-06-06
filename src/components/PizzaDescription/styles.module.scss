@@ -31,9 +31,9 @@
 }
 
 .price {
-  display: inline-block;
   background-color: white;
   margin-bottom: 10px;
+  margin-top: 5px;
   margin-left: 220px;
   border-radius: 8px;
   font-weight: bold;
@@ -57,4 +57,10 @@
   &:hover {
     box-shadow: 0 0 10px rgba(165, 152, 149, 0.7);
   }
+}
+
+.quantityPicker {
+  margin-left: 10px;
+  position: absolute;
+  margin-top: 330px;
 }
