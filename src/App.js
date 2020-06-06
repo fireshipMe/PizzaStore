@@ -19,12 +19,8 @@ export const App = () => {
           exact
           render={(props) => (
             <div>
-              <div className={styles.toCart}>
-                <Link to="/order">
-                  <CartIcon />
-                </Link>
-              </div>
               <Banner />
+
               <LoadingIndicator />
               <PizzasList />
             </div>
