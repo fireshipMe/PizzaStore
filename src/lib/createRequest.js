@@ -8,3 +8,15 @@ export const createRequest = (path, params = {}) => {
 
   return trackPromise(fetch(urlObj.toString()));
 };
+
+export const postData = () => {
+  // beautiful method just to pretend we are doing something and care about our customers.
+  // I do care about them, but with just one week? nah
+  return trackPromise(
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('SUCC');
+      }, 2000);
+    })
+  );
+};

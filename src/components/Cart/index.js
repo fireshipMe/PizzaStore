@@ -13,7 +13,6 @@ export const Cart = () => {
   });
 
   // delivery costs
-  price += 2;
 
   return (
     <div className={styles.container}>
@@ -27,7 +26,8 @@ export const Cart = () => {
       </div>
       {price ? (
         <div className={styles.total}>
-          <p>Доставка: 2$</p> Итог: {price}$ / {(price * 0.88).toPrecision(4)} €
+          <p>Доставка: 2$</p> Итог: {price + 2}$ /
+          {((price + 2) * 0.88).toPrecision(4)} €
         </div>
       ) : (
         <div className={styles.emptyCart}>Кажется, ничего нет :(</div>

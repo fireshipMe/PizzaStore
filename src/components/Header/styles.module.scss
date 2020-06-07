@@ -20,15 +20,6 @@
 }
 
 .toCart {
-  margin-left: 50vw;
+  margin-left: 20px;
   margin-top: 10px;
-  @media screen and (max-width: 1024px) {
-    margin-left: 40vw;
-  }
-  @media screen and (max-width: 768px) {
-    margin-left: 10vw;
-  }
-  @media screen and (max-width: 480px) {
-    margin-left: 20px;
-  }
 }

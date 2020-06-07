@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import styles from './styles.module.scss';
 import * as Yup from 'yup';
 import { Cart } from '../Cart/index';
+import { postData } from '../../lib/createRequest';
+import { usePromiseTracker } from 'react-promise-tracker';
 
 export const Order = () => {
   const orderList = useSelector((state) => state.cart);
@@ -57,6 +59,8 @@ const OrderSchema = Yup.object().shape({
 });
 
 const OrderForm = ({ cartIsEmpty }) => {
+  const { promiseInProgress } = usePromiseTracker();
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -73,7 +77,7 @@ const OrderForm = ({ cartIsEmpty }) => {
     validateOnChange: false,
     validateOnBlur: true,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      postData().then((succ) => console.log(succ));
     },
   });
   return (
@@ -205,10 +209,11 @@ const OrderForm = ({ cartIsEmpty }) => {
           className={[styles.input, styles.commentsInput].join(' ')}
         />
       </div>
-      <div>
+
+      <div className={styles.buttons}>
         {cartIsEmpty ? (
           <button className={styles.submitButton} type="submit">
-            ЗАКАЗАТЬ
+            {promiseInProgress ? 'Отправка...' : 'ЗАКАЗАТЬ'}
           </button>
         ) : (
           <button
