@@ -9,6 +9,7 @@ import json
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_CREDENTIALS
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 db = SQLAlchemy(app)
 CORS(app)
 api = Api(app)
