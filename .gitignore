@@ -26,4 +26,4 @@ yarn-error.log*
 /api/config.py
 
 #python libs
-/api/venv/
+/api/venv/*
