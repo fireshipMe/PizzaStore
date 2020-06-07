@@ -30,6 +30,9 @@
   margin-top: 120px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 480px) {
+    margin-left: 20px;
+  }
 }
 
 .middleRow {
@@ -58,12 +61,16 @@
   }
   &::placeholder {
     color: rgba(112, 84, 79, 0.5);
+    @media screen and (max-width: 480px) {
+      font-size: 12px;
+    }
   }
   @media screen and (max-width: 768px) {
     width: 122px;
   }
   @media screen and (max-width: 480px) {
     width: 80px;
+    font-size: 14px;
   }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { usePromiseTracker } from 'react-promise-tracker';
 import styles from './styles.module.scss';
 import { createRequest } from '../../lib/createRequest';
 import PizzaDescription from '../PizzaDescription/index';

@@ -6,10 +6,14 @@ import { forEach } from 'lodash';
 
 export const Cart = () => {
   const orderList = useSelector((state) => state.cart);
+
   let price = 0;
   forEach(orderList, (item) => {
     price += item.price * item.quantity;
   });
+
+  // delivery costs
+  price += 2;
 
   return (
     <div className={styles.container}>
@@ -23,7 +27,7 @@ export const Cart = () => {
       </div>
       {price ? (
         <div className={styles.total}>
-          Итог: {price}$ / {(price * 0.88).toPrecision(4)} €
+          <p>Доставка: 2$</p> Итог: {price}$ / {(price * 0.88).toPrecision(4)} €
         </div>
       ) : (
         <div className={styles.emptyCart}>Кажется, ничего нет :(</div>

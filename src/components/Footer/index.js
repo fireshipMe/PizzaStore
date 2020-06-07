@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { CartIcon } from '../CartIcon/index';
 
 export const Footer = () => {
   return (

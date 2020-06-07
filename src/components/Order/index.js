@@ -71,6 +71,7 @@ const OrderForm = ({ cartIsEmpty }) => {
     },
     validationSchema: OrderSchema,
     validateOnChange: false,
+    validateOnBlur: true,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
@@ -80,7 +81,7 @@ const OrderForm = ({ cartIsEmpty }) => {
       <div className={styles.contactsTitle}>Контактная информация</div>
       <div className={styles.contacts}>
         <input
-          placeholder={formik.errors.name ? formik.errors.name : 'Имя'}
+          placeholder={'Имя'}
           id="name"
           name="name"
           type="text"
@@ -93,7 +94,7 @@ const OrderForm = ({ cartIsEmpty }) => {
           }
         />
         <input
-          placeholder={formik.errors.phone ? formik.errors.phone : 'Телефон'}
+          placeholder={'Телефон'}
           id="phone"
           name="phone"
           type="text"
@@ -106,7 +107,7 @@ const OrderForm = ({ cartIsEmpty }) => {
           }
         />
         <input
-          placeholder={formik.errors.email ? formik.errors.email : 'E-Mail'}
+          placeholder={'E-Mail'}
           id="email"
           name="email"
           type="text"
@@ -122,7 +123,7 @@ const OrderForm = ({ cartIsEmpty }) => {
       <div className={styles.address}>Адрес</div>
       <div className={styles.topRow}>
         <input
-          placeholder={formik.errors.street ? formik.errors.street : 'Улица'}
+          placeholder={'Улица'}
           id="street"
           name="street"
           type="text"
@@ -135,7 +136,7 @@ const OrderForm = ({ cartIsEmpty }) => {
           }
         />
         <input
-          placeholder={formik.errors.house ? formik.errors.house : 'Дом'}
+          placeholder={'Дом'}
           id="house"
           name="house"
           type="text"
@@ -150,9 +151,7 @@ const OrderForm = ({ cartIsEmpty }) => {
       </div>
       <div className={styles.middleRow}>
         <input
-          placeholder={
-            formik.errors.apartment ? formik.errors.apartment : 'Квартира'
-          }
+          placeholder={'Квартира'}
           id="apartment"
           name="apartment"
           type="text"
@@ -167,9 +166,7 @@ const OrderForm = ({ cartIsEmpty }) => {
           }
         />
         <input
-          placeholder={
-            formik.errors.entrance ? formik.errors.entrance : 'Подъезд'
-          }
+          placeholder={'Подъезд'}
           id="entrance"
           name="entrance"
           type="text"
@@ -184,7 +181,7 @@ const OrderForm = ({ cartIsEmpty }) => {
           }
         />
         <input
-          placeholder={formik.errors.floor ? formik.errors.floor : 'Этаж'}
+          placeholder={'Этаж'}
           id="floor"
           name="floor"
           type="text"
