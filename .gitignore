@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Database credentials
 /api/config.py
+
+#python libs
+/api/venv/
