@@ -6,7 +6,7 @@ from database_setup import Pizza
 from config import DB_CREDENTIALS
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')
 app.config['JSON_AS_ASCII'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_CREDENTIALS
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
@@ -22,6 +22,12 @@ class PizzaApi(Resource):
 
 
 api.add_resource(PizzaApi, '/api/listall')
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
 
 if __name__ == "__main__":
     app.run()

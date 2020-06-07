@@ -1,17 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useFormik, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
 import styles from './styles.module.scss';
 import * as Yup from 'yup';
+import { Cart } from '../Cart/index';
 
 export const Order = () => {
+  const orderList = useSelector((state) => state.cart);
+
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>Куда доставить?</div>
-      <div>
-        <OrderForm />
+    <React.Fragment>
+      <div className={styles.container}>
+        <div className={styles.title}>Куда доставить?</div>
+        <div>
+          <OrderForm cartIsEmpty={!(orderList.length === 0)} />
+        </div>
       </div>
-    </div>
+      <Cart />
+    </React.Fragment>
   );
 };
 
@@ -49,7 +56,7 @@ const OrderSchema = Yup.object().shape({
     .integer('Неверный формат'),
 });
 
-const OrderForm = () => {
+const OrderForm = ({ cartIsEmpty }) => {
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -202,9 +209,19 @@ const OrderForm = () => {
         />
       </div>
       <div>
-        <button className={styles.submitButton} type="submit">
-          ЗАКАЗАТЬ
-        </button>
+        {cartIsEmpty ? (
+          <button className={styles.submitButton} type="submit">
+            ЗАКАЗАТЬ
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            className={styles.submitDisabled}
+            type="submit"
+          >
+            ЗАКАЗАТЬ
+          </button>
+        )}
         <Link to="/">
           <button className={styles.submitButton + ' ' + styles.menuButton}>
             МЕНЮ

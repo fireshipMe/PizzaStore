@@ -8,7 +8,7 @@ export const PizzasList = () => {
   const [state, onChange] = React.useState();
 
   React.useEffect(() => {
-    createRequest(`http://localhost:5000/api/listall`)
+    createRequest(`https://pizzastoreinnoscripta.herokuapp.com/api/listall`)
       .then((response) => response.json())
       .then((result) => JSON.parse(result))
       .then((result) => onChange(result));

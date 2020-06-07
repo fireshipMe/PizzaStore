@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import { App } from './App';
 import { Header } from './components/Header/index';
+import { Footer } from './components/Footer/index';
 import rootReducer from './reducers';
 
 const store = createStore(
@@ -19,6 +20,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Header />
         <App />
+        <Footer />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

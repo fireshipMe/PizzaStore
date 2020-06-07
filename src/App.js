@@ -20,7 +20,6 @@ export const App = () => {
           render={(props) => (
             <div>
               <Banner />
-
               <LoadingIndicator />
               <PizzasList />
             </div>
@@ -32,7 +31,6 @@ export const App = () => {
           render={(props) => (
             <div className={styles.container}>
               <Order />
-              <Cart />
             </div>
           )}
         />
