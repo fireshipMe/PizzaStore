@@ -1,5 +1,7 @@
 Gosh, im glad this is not a real application. Best e-commerce practices(no). Sorry for hypothetical clients.
 
+Deployed version lives here: https://pizzastoreinnoscripta.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
